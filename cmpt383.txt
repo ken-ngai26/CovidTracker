@@ -1,0 +1,25 @@
+Topic idea: what will it actually do?
+
+Covid-19 tracker application
+Assume the app is on at all time, and no false information inputted. This will not tackle the privacy issue or else it will be hard to implement with a lot of people not installing, false information, usage of GPS, and hiding symptoms. 
+	-Check the current news and cases happening in Canada or in the world
+
+	-Be able to track any symptoms you have and get advice on what to do. (A survey style of diagnosis and return possible output such as flu, covid-19, etc)
+
+	-Make tracing the spread quicker for health service
+	
+	-Create a semi realtime map with how many covid-19 case in the region.
+
+The three programming languages you will use, and (briefly) what will be implemented with each.
+	- (React) Typescript	-	Front-End
+	- (Flask) Python	- Back-End logic
+	- Go - Faster computation Back-End
+
+
+The two inter-language communication methods you will use.
+	-FFI (Python && Go)
+	-Restful API(React && Python)
+
+Deployment technology: Vagrant VM, or Docker containers.
+
+	-Docker containers
