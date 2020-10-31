@@ -14,6 +14,7 @@ The three programming languages you will use, and (briefly) what will be impleme
 	- (React) Typescript	-	Front-End
 	- (Flask) Python	- Back-End logic
 	- Go - Faster computation Back-End
+	- SQLAlchemy database in Flask - Database
 
 
 The two inter-language communication methods you will use.
