@@ -1,33 +1,89 @@
-version: "3"
+# version: '3.7'
 
+# services:
+
+#     client:
+#         build:
+#             context: ./frontend
+#             dockerfile: Dockerfile
+#         tty: true
+#         ports:
+#             - "3000:3000"
+#         volumes: 
+#             - ./frontend:/app
+#             - /app/node_modules
+#         networks:
+#             - frontend
+
+#     # mongodb:
+#     #     image: mongo
+#     #     container_name: mongo
+#     #     restart: unless-stopped
+#     #     command: mongod --auth
+#     #     environment:
+#     #         MONGO_INITDB_ROOT_USERNAME: "admin"
+#     #         MONGO_INITDB_ROOT_PASSWORD: "password"
+#     #         MONGO_INITDB_DATABASE: webapp
+#     #         MONGODB_DATA_DIR: /data/db
+#     #     volumes:
+#     #     - mongodbdata:/data/db
+#     #     networks:
+#     #     - backend
+
+# #     api:
+# #         build: 
+# #             context: ./backend
+# #             dockerfile: Dockerfile
+# #         command: gunicorn --bind 0.0.0.0:5000 app:app
+# #         ports:
+# #             - "5000:5000"
+# #         environment:
+# #             MONGODB_HOST: mongodb
+# #             MONGODB_USERNAME: "apiuser"
+# #             MONGODB_PASSWORD: "apipassword"
+# #         volumes:
+# #             - appdata:/var/www/
+# #         depends_on: 
+# #             - mongodb
+# #         networks:
+# #             - frontend
+# #             - backend
+
+# # networks:
+# #     frontend:
+# #         driver: bridge
+# #     backend:
+# #         driver: bridge
+# # volumes:
+# #     mongodbdata:
+# #         driver: local
+# #     appdata:
+# #         driver: local
+
+# flask:
+#     container_name: flask-api
+#     build:
+#       context: ./backend
+#       dockerfile: Dockerfile
+#     ports: 
+#      - 5000:5000
+
+
+version: "3"
 services:
+  react:
+   tty: true
+   build:
+     context: ./frontend
+     dockerfile: Dockerfile
+   ports: 
+    - 3000:3000
+
+
   flask:
-    build: ./server/
-    container_name: flask-servers
-    working_dir: /var/www/server
-    ports:
-        - 5000:5000
-    volumes:
-        - ./server/:/var/www/server
-    command: python manage.py runserver --host=0.0.0.0
-    env_file:
-        - .env
-    depends_on:
-        - database
-  database:
-    image: postgres:10
-    container_name: flask-databases
-    volumes:
-      - ./initial.sql:/docker-entrypoint-initdb.d/initial.sql
-  node:
-    image: node:10
-    container_name: node-clients
-    working_dir: /var/www/client/
-    command: yarn start
-    ports:
-        - 3000:3000
-    env_file:
-      - .env
-    volumes:
-        - ./server/:/var/www/server/
-        - ./client/:/var/www/client/
+   build:
+     context: ./backend
+     dockerfile: Dockerfile
+   ports: 
+    - 5000:5000
+

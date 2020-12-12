@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+}
+
+body{
+  background-color: rgb(240, 239, 239);
+}
+
+.app {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+
+.app_header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.app_stat {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app_left {
+  flex: 0.8;
+}
+
+.app_tableAndChart > h3 {
+  color: #6a5d5d;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.app_tableAndChart > h3:last-of-type {
+  margin-top: 1rem;
+}
+@media (max-width: 990px) {
+  .app {
+    flex-direction: column;
+  }
+}

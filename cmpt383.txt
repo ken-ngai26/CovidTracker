@@ -1,26 +1,50 @@
 Topic idea: what will it actually do?
-
+Project Summary:
 Covid-19 tracker application
-Assume the app is on at all time, and no false information inputted. This will not tackle the privacy issue or else it will be hard to implement with a lot of people not installing, false information, usage of GPS, and hiding symptoms. 
+Assume no false information inputted. This will not tackle the privacy issue or else it will be hard to implement with a lot of people not installing, false information, and hiding symptoms. 
+	
+	-Create personal health status
+
 	-Check the current news and cases happening in Canada or in the world
 
 	-Be able to track any symptoms you have and get advice on what to do. (A survey style of diagnosis and return possible output such as flu, covid-19, etc)
-
+		- user auth was broken even most basic test call doesn't work 
+			-curl -X GET http://127.0.0.1:5000/test
+			- It should have let user to fill in form then post back to database with 
+				-http://127.0.0.1:5000/saveReport then it can use http://127.0.0.1:5000/getReport to show the data and keep in track of the people
+				-the getReport uses the a c executable as lib to find the mostRecent one by comparing the array.
 	-Make tracing the spread quicker for health service
 	
 	-Create a semi realtime map with how many covid-19 case in the region.
+		-uses disease.sh api for pulling covid-19 dataset 
+			-https://github.com/disease-sh/API 
+			-https://corona.lmao.ninja/docs/
+		-dropdown list to view each country
+		-clicking on circle of the map will pop up statistical information
+		-clicking on cases, recovered, death will effect the map and the graph based on which one is clicked. 
 
 The three programming languages you will use, and (briefly) what will be implemented with each.
-	- (React) Typescript	-	Front-End
+	- (React) Javascript	-	Front-End
 	- (Flask) Python	- Back-End logic
-	- Go - Faster computation Back-End
+	- C - Faster computation Back-End
 	- SQLAlchemy database in Flask - Database
 
 
 The two inter-language communication methods you will use.
-	-FFI (Python && Go)
+	-run as lib (Python && C)
 	-Restful API(React && Python)
+	-React as frontend
 
-Deployment technology: Vagrant VM, or Docker containers.
-
+Deployment technology: Docker containers.
 	-Docker containers
+
+cd to backend with cd backend then
+	pip install -r requirements.txt
+back to project with cd .. 
+	docker-compose up -d
+for database
+	docker exec -it mongo bash
+To start up the app	
+	docker-compose up 
+	docker-compose build
+the api is running on http://127.0.0.1:5000/ 

@@ -1,0 +1,19 @@
+.table {
+    margin-top: 30px;
+    overflow: scroll;
+    height: 500px;
+    color: rgba(17, 14, 14, 0.616);
+}
+
+.table tr:nth-of-type(even){
+    background-color: lavender;
+}
+
+.table tr {
+    display: flex;
+    justify-content:space-between ;
+}
+
+.table td {
+    padding: 1 rem;
+}

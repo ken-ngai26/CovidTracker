@@ -1,5 +1,5 @@
 
-
+more information in cmpt383.txt
 ### Build project
 
 3. Build docker-compose
@@ -19,3 +19,5 @@ docker-compose up
 ```bash
 docker-compose run flask pytest
 ```
+
+

@@ -1,0 +1,33 @@
+.informationBox {
+  flex: 1;
+}
+
+.informationBox:not(:last-child) {
+  margin-right: 10px;
+}
+
+.informationBox-selected {
+  border-top: 10px solid greenyellow;
+}
+
+.informationBox-death {
+  border-color: red;
+}
+
+.informationBox_cases-green {
+  color: lightgreen !important;
+}
+
+.informationBox_cases {
+  color: #0600ae;
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.informationBox_total {
+  color: #3c4247;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+  margin-top: 15px !important;
+}
